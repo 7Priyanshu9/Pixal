@@ -1,0 +1,222 @@
+*,*::before, *::after{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.container{
+  display: grid;
+  grid-template-columns: 1fr auto ;
+  grid-template-rows: 1fr auto ;
+  /* here we are defining there orientation in the page like image at top left sidebar at top right then slider at bottom left and sidebar continues to bottom right  */
+  grid-template-areas:
+  "image sidebar"
+  "slider sidebar" ;
+  height:120vh;
+  width: 100vw;
+  background-color: #FAEED1;
+}
+
+.main_img{
+  grid-area: image;
+  background-image: url(./assets/Resources/red.jpg);
+  height: 90%;
+  width: 100%;
+  background-position: top center;
+  background-size: contain;
+  background-repeat: no-repeat;
+ 
+}
+
+.sideBar{
+  grid-area: sidebar;
+  background-color: #B6C4B6;
+ 
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 180px;
+}
+
+.sideBarItem{
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: #B6C4B6;
+  padding: 1rem;
+  position: relative;
+  transition:  background-color 150ms;
+  color: #092635;
+}
+
+.sideBarItem:hover, sideBarItem:focus{
+  background-color: #163020;
+  color: white;
+}
+
+.sideBarItem.active{
+  background-color: #304D30;
+}
+
+/* this is for the line between 2 sidebar items  */
+.sideBarItem::after{
+  content: ' ';
+  position: absolute;
+  width: 80%;
+  left: 10%;
+  bottom: 0;
+  height: 1px;
+  background-color: black;
+}
+
+/* so that the line doesnt appear after the last child  */
+.sideBarItem:last-child::after{
+  display: none;
+}
+
+
+.sliderContainer{
+  grid-area: slider;
+  margin-left: 160px;
+  margin-top: 2rem;
+  padding: 2rem;
+}
+
+.slider{
+  width: 80%;
+  cursor: pointer;
+}
+
+.sliderContainer {
+  position: relative;
+}
+
+.sliderValue,
+.sliderRange {
+  position: absolute;
+  top: 0px; /* Adjust this value based on your design */
+  left: 90%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  color: black;
+}
+
+.hero-main{
+  height: 400px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  /* margin-bottom: 40px;
+  padding: 80px; */
+  gap: 50px;
+  padding-left: 80px;
+  padding-right: 80px;
+  background-color: #FAEED1;
+
+}
+
+.hero-img{
+  border-radius: 100px;
+
+}
+
+.hero-text h1{
+  font-style: italic;
+  font-weight: 900;
+  max-width: 60ch;
+  color: black;
+}
+
+.hero-text h5{
+  font-size: medium;
+  font-weight: 500;
+  line-height: 1.7;
+  max-width: 60ch;
+  color: black;
+}
+
+.sliderValue{
+  color: black;
+}
+
+.buttonContainer{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.DB{
+  background-color: #4CB9E7;
+  color: black;
+  padding: 6px;
+  
+  
+}
+
+.DB:hover{
+  cursor: pointer;
+  background-color: #3559E0;
+  color: white;
+}
+
+.navigation{
+  display: flex;
+  justify-content: space-between;
+  background-color: #FAEED1;
+  padding-bottom: 40px;
+}
+
+.options{
+  display: flex;
+  gap: 40px;
+  padding-right: 40px;
+  font-weight: 600;
+  list-style: none;
+  color: black;
+  
+}
+
+.icon, .options li {
+  transition: transform 0.3s ease;
+}
+
+.icon:hover, .options li:hover {
+  transform: scale(1.2);
+}
+
+.icon:not(:hover), .options li:not(:hover) {
+  transform: scale(0.8);
+}
+
+
+.hero-text h1, .hero-text h5 {
+  transition: transform 0.3s ease;
+}
+
+.hero-text h1:hover, .hero-text h5:hover {
+  transform: translateY(-10px);
+}
+
+.hero-img img {
+  transition: transform 0.3s ease;
+}
+
+.hero-img img:hover {
+  transform: translateX(10px);
+}
+
+.sideBar div {
+  transition: transform 0.3s ease;
+}
+
+.sideBar div:hover {
+  transform: scale(1.2);
+}
+
+.sideBar div:not(:hover) {
+  transform: scale(0.8);
+}
